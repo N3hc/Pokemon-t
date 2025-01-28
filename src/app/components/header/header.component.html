@@ -1,1 +1,37 @@
-<p>header works!</p>
+<div class="row align-items-center text-center" style="background-color: #1064A6; padding: 10px;">
+    <div class="col-md-3 d-flex justify-content-between align-items-center">
+        <img src="assets/logos/logo.png" alt="Logo" style="max-height: 40px;">
+        <img
+        style="max-width: 60px;"
+        (click)="toggleTheme()"
+        [src]="isDarkMode ? 'assets/icons/solgaleoCoin.png' : 'assets/icons/lunalaCoin.png'"
+        alt="Theme Icon"
+      >
+      <p></p>
+    </div>
+    <div class="col-md-6">
+        <form class="d-flex position-relative justify-content-center" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <div class="d-flex justify-content-evenly">
+            <div class="account text-center">
+                <p class="m-0">Hola, Identifícate<br><strong>Cuenta y listas</strong></p>
+            </div>
+            <div class="process text-center">
+                <p class="m-0">Devoluciones<br><strong>y Pedidos</strong></p>
+            </div>
+            <div class="cart text-center d-flex align-items-center">
+                <img src="assets/icons/cart.png" alt="Carrito" style="max-height: 30px; margin-right: 5px;">
+                <strong>Cesta</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row align-items-center text-center" style="background-color: #3D81B6; padding: -8px;">
+    <!--@for (category of categories.categoriesList; track $index) {
+        <div class="col-md d-flex justify-content-center" style="padding-top: 8px;"><p class="text-center" style="color: white;">{{category}}</p></div>
+    }-->
+</div>

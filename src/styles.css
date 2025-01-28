@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: white;
+    color: black;
+}
+
+
+body.dark-theme {
+    background-color: #192229;
+    color: white;
+}
+
+body.dark-theme .subBackground {
+    background-color: #2a3b47;
+}
