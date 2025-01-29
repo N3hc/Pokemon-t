@@ -1,0 +1,14 @@
+<div class="MultiCarousel">
+    <button class="btn left" (click)="move(-1)">&lt;</button>
+    <div class="MultiCarousel-inner" [style.transform]="'translateX(' + -translateX + '%)'">
+        @for (set of sets; track $index) {
+        <div class="item" [style.width]="itemWidth + '%'">
+            <div class="content">
+                <img [src]="set.images.logo" alt="{{ set.name }}">
+                <p>{{ set.name }}</p>
+            </div>
+        </div>
+        }
+    </div>
+    <button class="btn right" (click)="move(1)">&gt;</button>
+    </div>

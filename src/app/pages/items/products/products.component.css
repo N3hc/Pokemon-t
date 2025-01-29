@@ -5,25 +5,3 @@ img {
     margin-bottom: 5px;
   }
 
-  .set-container {
-    position: relative;
-    display: inline-block;
-  }
-
-  .set-name {
-    position: absolute;
-    bottom: 10px;  /* Ajusta la posición según lo necesites */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);  /* Fondo oscuro */
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    display: none; /* Ocultamos el nombre por defecto */
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .set-container:hover .set-name {
-    display: block; /* Muestra el nombre cuando se hace hover */
-  }
