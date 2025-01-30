@@ -1,14 +1,17 @@
-<div class="MultiCarousel">
+<div class="container">
     <button class="btn left" (click)="move(-1)">&lt;</button>
-    <div class="MultiCarousel-inner" [style.transform]="'translateX(' + -translateX + '%)'">
-        @for (set of sets; track $index) {
-        <div class="item" [style.width]="itemWidth + '%'">
-            <div class="content">
-                <img [src]="set.images.logo" alt="{{ set.name }}">
-                <p>{{ set.name }}</p>
-            </div>
+    @if (sets.length > 0){
+    @for (i of getVisibleIndices(); track i) {
+    <div class="item">
+        <div class="content">
+            <img [src]="sets[i].images.logo" [alt]="sets[i].name">
+            <p>{{ sets[i].name }}</p>
         </div>
-        }
     </div>
+    }
+    }
+    @else{
+    <p>Cargando sets...</p>
+    }
     <button class="btn right" (click)="move(1)">&gt;</button>
-    </div>
+</div>

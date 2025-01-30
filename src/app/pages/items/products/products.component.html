@@ -1,9 +1,0 @@
-@if (sets.length > 0){
-    @for (set of sets; track $index) {
-        <img [src]="set.images.logo" alt="{{ set.name }}">
-        <p>{{set.name}}</p>
-    }
-}
-@else{
-        <p>Cargando sets...</p>
-    }
