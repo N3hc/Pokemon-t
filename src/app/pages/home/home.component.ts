@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ProductsComponent } from '../items/products/products.component';
 import { CarrouselComponent } from '../../components/carrousel/carrousel.component';
+import { SearchService } from '../../services/search/search.service';
 
 @Component({
   selector: 'app-home',
@@ -12,5 +13,10 @@ import { CarrouselComponent } from '../../components/carrousel/carrousel.compone
 })
 export class HomeComponent {
 
+  constructor(private searchService: SearchService) {}
+
+  handleSearch(query: string) {
+    this.searchService.setSearchTerm(query);
+  }
   
 }

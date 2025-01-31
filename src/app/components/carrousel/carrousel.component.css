@@ -48,14 +48,12 @@
 }
 
 .left {
-  left: -8%;
+  left: -7%;
 }
 
 .right {
-  right: -8%;
+  right: -7%;
 }
-
-/* Medios responsive */
 
 @media (max-width: 768px) {
   .container {
