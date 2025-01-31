@@ -39,7 +39,7 @@
 }
 
 .btn {
-  position: fixed;
+  position: absolute;
   background: #007bff;
   color: white;
   padding: 10px;
@@ -48,11 +48,11 @@
 }
 
 .left {
-  left: 0;
+  left: -8%;
 }
 
 .right {
-  right: 0;
+  right: -8%;
 }
 
 /* Medios responsive */

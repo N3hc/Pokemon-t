@@ -1,55 +1,46 @@
 {
-  "hash": "93646705",
-  "configHash": "d9682b96",
+  "hash": "1fa2ee00",
+  "configHash": "ed24b3b4",
   "lockfileHash": "943a7fd1",
-  "browserHash": "6c329e32",
+  "browserHash": "d719fe09",
   "optimized": {
-    "@angular/common": {
-      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
-      "file": "@angular_common.js",
-      "fileHash": "dc5bfb5d",
-      "needsInterop": false
-    },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "18e04296",
+      "fileHash": "7db9fed4",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "1410b5d1",
+      "fileHash": "6371dd9b",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "672cb081",
+      "fileHash": "6264923a",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "525dd65c",
+      "fileHash": "483d12a0",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "efdda61d",
+      "fileHash": "a944d798",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-EU57LUOW": {
-      "file": "chunk-EU57LUOW.js"
+    "chunk-DLMWN3SS": {
+      "file": "chunk-DLMWN3SS.js"
     },
-    "chunk-ZXWE2B2F": {
-      "file": "chunk-ZXWE2B2F.js"
-    },
-    "chunk-RPWA7QJJ": {
-      "file": "chunk-RPWA7QJJ.js"
+    "chunk-CBOIJGVY": {
+      "file": "chunk-CBOIJGVY.js"
     },
     "chunk-WLPABBOP": {
       "file": "chunk-WLPABBOP.js"
