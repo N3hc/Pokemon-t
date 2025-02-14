@@ -1,46 +1,55 @@
 {
-  "hash": "1fa2ee00",
-  "configHash": "ed24b3b4",
-  "lockfileHash": "943a7fd1",
-  "browserHash": "d719fe09",
+  "hash": "b1a8bfd2",
+  "configHash": "a6cc6a1a",
+  "lockfileHash": "78ee652c",
+  "browserHash": "b4fd10b1",
   "optimized": {
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "7db9fed4",
+      "fileHash": "a9952d5f",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "6371dd9b",
+      "fileHash": "6e54d5f2",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "7520b5c7",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "6264923a",
+      "fileHash": "98d83b5c",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "483d12a0",
+      "fileHash": "f440965d",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "a944d798",
+      "fileHash": "a610bec7",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-DLMWN3SS": {
-      "file": "chunk-DLMWN3SS.js"
+    "chunk-LIVLZABK": {
+      "file": "chunk-LIVLZABK.js"
     },
-    "chunk-CBOIJGVY": {
-      "file": "chunk-CBOIJGVY.js"
+    "chunk-WK4BULF7": {
+      "file": "chunk-WK4BULF7.js"
+    },
+    "chunk-KDWEDQE2": {
+      "file": "chunk-KDWEDQE2.js"
     },
     "chunk-WLPABBOP": {
       "file": "chunk-WLPABBOP.js"

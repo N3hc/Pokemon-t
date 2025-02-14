@@ -14,7 +14,7 @@ export class CardsApiService {
 
   constructor(private http: HttpClient) { }
 
-  getBaseSetCards(): Observable<any> {
+  getCards(): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.apiToken}`
     });
@@ -24,6 +24,30 @@ export class CardsApiService {
     };
 
     return this.http.get(this.apiUrl + '/cards', { headers, params });
+  }
+
+  getUniquePokemon(name: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.apiToken}`
+    });
+  
+    const params = {
+      q: `name:${name}`
+    }; 
+  
+    return this.http.get(this.apiUrl + '/cards', { headers, params });
+  }
+
+  getPokemonsFromSets(set: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.apiToken}`
+    });
+  
+    const params = {
+      q: set
+    }; 
+  
+    return this.http.get(this.apiUrl + '/sets', { headers, params });
   }
 
   getPokemonAllSets(): Observable<any> {

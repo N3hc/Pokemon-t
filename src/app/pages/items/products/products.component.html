@@ -1,3 +1,26 @@
-@for (card of cards; track $index) {
-    <img [src]="card.images.small">
-}
+
+<div class="d-flex flex-wrap justify-content-center">
+  @for (card of cards; track $index) {
+    <div class="d-flex  justify-content-center mt-5">
+      <div class="card p-3 bg-white" style="width: 100%; max-width: 300px;">
+        <i class="fa fa-apple"></i>
+        <div class="about-product text-center mt-2">
+          <img [src]="card.images.small">
+          <div>
+            <h4>{{card.name}}</h4>
+            @if(card.flavorText == null){
+              <h6 class="mt-0 text-black-50" style="max-width: 30vh;">{{card.rules}}</h6>
+            } @else {
+              <h6 class="mt-0 text-black-50" style="max-width: 30vh;">{{card.flavorText}}</h6>
+            }
+
+          </div>
+        </div>
+        <div class="d-flex justify-content-between total font-weight-bold mt-4">
+          <span>Total</span>
+          <span>{{card.cardmarket.prices.averageSellPrice}} €</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
