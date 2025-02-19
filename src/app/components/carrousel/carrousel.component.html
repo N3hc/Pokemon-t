@@ -3,7 +3,7 @@
     @if (sets.length > 0){
     @for (i of getVisibleIndices(); track i) {
     <div class="item">
-        <div class="content">
+        <div class="content" (click)="selectCategory(sets[i].id)">
             <img [src]="sets[i].images.logo" [alt]="sets[i].name">
             <p>{{ sets[i].name }}</p>
         </div>

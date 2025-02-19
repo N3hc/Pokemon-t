@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsApiService } from '../../../services/api/cards-api.service';
 import { SearchService } from '../../../services/search/search.service';
+import { combineLatest } from 'rxjs';
+
 
 @Component({
   selector: 'app-products',
@@ -18,17 +20,25 @@ export class ProductsComponent implements OnInit  {
   ) {}
   
   ngOnInit(): void {
-    this.searchService.searchTerm$.subscribe((query) => {
+    combineLatest([
+      this.searchService.searchTerm$,
+      this.searchService.selectedCategory$
+    ]).subscribe(([query, category]) => {
       if (query) {
-        this.searchCards(query);
+        this.searchCards(query); 
+        console.log("paso 1")
+      } else if (category) {
+        this.searchCardsFromSet(category); 
+        console.log("paso 2")
       } else {
-        this.loadCards();
+        this.loadCards(); 
+        console.log("paso 3")
       }
     });
   }
   
-
   loadCards(): void {
+    this.cards = [];
     this.cardsApiService.getCards().subscribe({
       next: (cards) => {
         this.cards = cards.data;
@@ -40,7 +50,9 @@ export class ProductsComponent implements OnInit  {
     });
   }
   
-    searchCards(query: string): void {
+  searchCards(query: string): void {
+    this.cards = [];
+  
     this.cardsApiService.getUniquePokemon(query).subscribe({
       next: (cards) => {
         this.cards = cards.data;
@@ -52,4 +64,18 @@ export class ProductsComponent implements OnInit  {
     });
   }
 
+  searchCardsFromSet(query: string): void {
+    this.cards = [];
+  
+    this.cardsApiService.getPokemonsFromSets(query).subscribe({
+      next: (cards) => {
+        this.cards = cards.data;
+        console.log(cards);
+      },
+      error: (error) => {
+        console.error('Error al buscar cartas:', error);
+      }
+    });
+  }
+  
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../../services/search/search.service';
 
 
 @Component({
@@ -12,23 +13,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
 
+  constructor(private themeService: ThemeService, 
+    private searchService: SearchService
+  ) {
+    this.themeService.isDarkMode$.subscribe(isDark => {
+      this.isDarkMode = isDark;
+    });
+  }
+
   searchTerm: string = '';
 
-  @Output() searchEvent = new EventEmitter<string>();
-
-  onSearch() {  
+  onSearch() {
     if (this.searchTerm.trim()) {
-      this.searchEvent.emit(this.searchTerm);
+      this.searchService.setSearchTerm(this.searchTerm);
+    } else {
+      this.searchService.setSearchTerm('Pikachu');
     }
   }
 
   isDarkMode: boolean = false;
 
-  constructor(private themeService: ThemeService) {
-    this.themeService.isDarkMode$.subscribe(isDark => {
-      this.isDarkMode = isDark;
-    });
-  }
+
 
   toggleTheme() {
     this.themeService.toggleTheme();

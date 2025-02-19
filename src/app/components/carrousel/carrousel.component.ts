@@ -1,5 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, EventEmitter, OnInit, Output } from '@angular/core';
 import { CardsApiService } from '../../services/api/cards-api.service';
+import { SearchService } from '../../services/search/search.service';
 
 @Component({
   selector: 'app-carrousel',
@@ -13,7 +14,14 @@ export class CarrouselComponent implements OnInit {
   currentIndex = 0;
   index = 0;
 
-  constructor(private cardsApiService: CardsApiService) {}
+  constructor(private cardsApiService: CardsApiService,
+    private searchService: SearchService
+  ) { }
+
+  selectCategory(category: string) {
+    this.searchService.setCategory(category);
+  }
+
 
   ngOnInit(): void {
     this.loadSets();
@@ -23,6 +31,7 @@ export class CarrouselComponent implements OnInit {
     this.cardsApiService.getPokemonAllSets().subscribe({
       next: (sets) => {
         this.sets = this.shuffleArray(sets.data);
+        console.log(sets)
       },
       error: (error) => {
         console.error('Error al cargar los sets:', error);
@@ -30,9 +39,10 @@ export class CarrouselComponent implements OnInit {
     });
   }
 
+
   move(direction: number): void {
     const totalItems = this.sets.length;
-    this.currentIndex = (this.currentIndex + direction + totalItems) % totalItems; 
+    this.currentIndex = (this.currentIndex + direction + totalItems) % totalItems;
   }
 
   getVisibleIndices(): number[] {
@@ -51,9 +61,9 @@ export class CarrouselComponent implements OnInit {
 
   shuffleArray<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [array[i], array[j]] = [array[j], array[i]]; 
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-    return array; 
+    return array;
   }
 }

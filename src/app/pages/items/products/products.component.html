@@ -1,5 +1,6 @@
 
 <div class="d-flex flex-wrap justify-content-center">
+  @if (cards.length > 0){
   @for (card of cards; track $index) {
     <div class="d-flex  justify-content-center mt-5">
       <div class="card p-3 bg-white" style="width: 100%; max-width: 300px;">
@@ -18,9 +19,12 @@
         </div>
         <div class="d-flex justify-content-between total font-weight-bold mt-4">
           <span>Total</span>
-          <span>{{card.cardmarket.prices.averageSellPrice}} €</span>
+          <span>{{ card.cardmarket?.prices?.averageSellPrice || 'unknow' }} €</span>
         </div>
       </div>
     </div>
   }
+}@else{
+  <p>Cargando cartas...</p>
+}
 </div>

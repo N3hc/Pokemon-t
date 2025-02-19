@@ -10,7 +10,7 @@ export class CardsApiService {
 
   private apiUrl = 'https://api.pokemontcg.io/v2';
 
-  private apiToken = '0de19d2a-b166-429a-ab0d-a6c0f576d138'; 
+  private apiToken = '0de19d2a-b166-429a-ab0d-a6c0f576d138';
 
   constructor(private http: HttpClient) { }
 
@@ -21,44 +21,48 @@ export class CardsApiService {
 
     const params = {
       q: 'set.id:sv3pt5',
+      orderBy: 'number'
+    };
+    
+    return this.http.get(this.apiUrl + '/cards', { headers, params });
+  }
+
+  getUniquePokemon(name: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.apiToken}`
+    });
+
+    const params = {
+      q: `name:${name}`,
+      orderBy: 'number'
+
     };
 
     return this.http.get(this.apiUrl + '/cards', { headers, params });
   }
 
-  getUniquePokemon(name: string): Observable<any>{
+  getPokemonsFromSets(set: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.apiToken}`
     });
-  
-    const params = {
-      q: `name:${name}`
-    }; 
-  
-    return this.http.get(this.apiUrl + '/cards', { headers, params });
-  }
 
-  getPokemonsFromSets(set: string): Observable<any>{
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.apiToken}`
-    });
-  
     const params = {
-      q: set
-    }; 
-  
-    return this.http.get(this.apiUrl + '/sets', { headers, params });
+      q: 'set.id:'+set,
+      orderBy: 'number'
+    };
+
+    return this.http.get(this.apiUrl + '/cards', { headers, params });
   }
 
   getPokemonAllSets(): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.apiToken}`
     });
-  
+
     const params = {
       //q: 'legalities.standard:legal'
-    }; 
-  
+    };
+
     return this.http.get(this.apiUrl + '/sets', { headers, params });
   }
 }
