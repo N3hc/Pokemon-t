@@ -20,29 +20,30 @@ export class ProductsComponent implements OnInit  {
   }
 
   cards: any[] = [];
+  categories: any[] = [];
 
   constructor(private cardsApiService: CardsApiService,
               private searchService: SearchService
   ) {}
-  
+
   ngOnInit(): void {
     combineLatest([
       this.searchService.searchTerm$,
       this.searchService.selectedCategory$
     ]).subscribe(([query, category]) => {
       if (query) {
-        this.searchCards(query); 
+        this.searchCards(query);
         console.log("paso 1")
       } else if (category) {
-        this.searchCardsFromSet(category); 
+        this.searchCardsFromSet(category);
         console.log("paso 2")
       } else {
-        this.loadCards(); 
+        this.loadCards();
         console.log("paso 3")
       }
     });
   }
-  
+
   loadCards(): void {
     this.cards = [];
     this.cardsApiService.getCards().subscribe({
@@ -55,10 +56,10 @@ export class ProductsComponent implements OnInit  {
       }
     });
   }
-  
+
   searchCards(query: string): void {
     this.cards = [];
-  
+
     this.cardsApiService.getUniquePokemon(query).subscribe({
       next: (cards) => {
         this.cards = cards.data;
@@ -72,7 +73,7 @@ export class ProductsComponent implements OnInit  {
 
   searchCardsFromSet(query: string): void {
     this.cards = [];
-  
+
     this.cardsApiService.getPokemonsFromSets(query).subscribe({
       next: (cards) => {
         this.cards = cards.data;
@@ -83,5 +84,5 @@ export class ProductsComponent implements OnInit  {
       }
     });
   }
-  
+
 }
