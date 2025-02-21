@@ -1,3 +1,8 @@
 <app-header></app-header>
+@if (!selectedProduct) {
 <app-carrousel></app-carrousel>
-<app-products></app-products>
+<app-products (productSelected)="onProductSelected($event)"></app-products>
+}
+@else {
+    <app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
+}

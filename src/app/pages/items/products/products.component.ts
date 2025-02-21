@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { CardsApiService } from '../../../services/api/cards-api.service';
 import { SearchService } from '../../../services/search/search.service';
 import { combineLatest } from 'rxjs';
@@ -12,6 +12,12 @@ import { combineLatest } from 'rxjs';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit  {
+
+  @Output() productSelected = new EventEmitter<any>();
+
+  selectProduct(product: any) {
+    this.productSelected.emit(product);
+  }
 
   cards: any[] = [];
 

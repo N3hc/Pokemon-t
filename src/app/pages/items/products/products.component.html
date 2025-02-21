@@ -2,10 +2,11 @@
 <div class="d-flex flex-wrap justify-content-center">
   @if (cards.length > 0){
   @for (card of cards; track $index) {
+    @if (card.cardmarket?.prices?.averageSellPrice) {
     <div class="d-flex  justify-content-center mt-5">
       <div class="card p-3 bg-white" style="width: 100%; max-width: 300px;">
         <i class="fa fa-apple"></i>
-        <div class="about-product text-center mt-2">
+        <div class="about-product text-center mt-2" (click)="selectProduct(card)">
           <img [src]="card.images.small">
           <div>
             <h4>{{card.name}}</h4>
@@ -14,7 +15,6 @@
             } @else {
               <h6 class="mt-0 text-black-50" style="max-width: 30vh;">{{card.flavorText}}</h6>
             }
-
           </div>
         </div>
         <div class="d-flex justify-content-between total font-weight-bold mt-4">
@@ -24,6 +24,10 @@
       </div>
     </div>
   }
+  @else{
+    <h1> </h1>
+  }
+}
 }@else{
   <p>Cargando cartas...</p>
 }
