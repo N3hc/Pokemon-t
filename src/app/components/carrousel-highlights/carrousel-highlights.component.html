@@ -1,10 +1,30 @@
 <div class="container">
-  @if (sets.length > 0) {
-    <table></table>
-    <p>{{ sets[1].name }}</p>
-  } @else {
-    <h1>La cagué</h1>
-  }
-</div>
+  @if (sets.length > 0 ) {
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha de Salida</th>
+          <th>Total de Cartas</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (serie of series; track $index) {
+          <tr>
+            <td>{{ serie }}</td>
+          </tr>
+          @for (set of sets; track $index) {
+            @if (serie == set.series) {
+              <tr>
+                <td>{{ set.name }}</td>
+                <td>{{ set.releaseDate }}</td>
+                <td>{{ set.total }}</td>
+              </tr>
+            }
 
+          }
+        }
+      </tbody>
+    </table>
+  }
 
