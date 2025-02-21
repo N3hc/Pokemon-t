@@ -35,6 +35,7 @@ export class ProductsComponent implements OnInit  {
         this.searchCards(query);
         console.log("paso 1")
       } else if (category) {
+        
         this.searchCardsFromSet(category);
         console.log("paso 2")
       } else {
