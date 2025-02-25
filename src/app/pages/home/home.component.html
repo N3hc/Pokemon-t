@@ -3,8 +3,11 @@
 <app-carrousel></app-carrousel>
 <app-products (productSelected)="onProductSelected($event)"></app-products>
 <app-carrousel-highlights/>
-
 }
 @else {
     <app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
 }
+
+<!--<app-detail [card]="CardTest" (goBack)="goBack()"></app-detail>-->
+
+

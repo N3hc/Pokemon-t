@@ -11,10 +11,11 @@ export class DetailComponent implements OnInit{
   @Input() card: any;
   @Output() goBack = new EventEmitter<void>();
 
+  route = "assets/energy/";
+
   backToProducts() {
     this.goBack.emit();
   }
-  
   ngOnInit(): void {
     console.log(this.card);
   }

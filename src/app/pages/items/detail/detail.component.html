@@ -1,99 +1,105 @@
 <button (click)="backToProducts()">Go back</button>
 <div class="container mt-4">
-    <div class="row">
-      <!-- Columna de la imagen de la carta -->
-      <div class="col-md-4">
-        <div class="card">
-          <img
-            [src]="card.images?.large"
-            class="card-img-top"
-            [alt]="card.name"
-          />
-          <div class="card-body">
-            <h5 class="card-title text-center">{{ card.name }}</h5>
-            <p class="text-center">
-              <strong>HP:</strong> {{ card.hp }}
-              | <strong>Tipo:</strong>
-              <!-- Si existe 'types' mostramos el primer tipo; si no, 'Desconocido' -->
-              {{ card.types && card.types.length ? card.types[0] : 'Desconocido' }}
-            </p>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Columna de la información de la carta -->
-      <div class="col-md-8">
-        <h2 class="mb-3">
-          {{ card.name }} - Pokémon TCG
-        </h2>
-        <p>
-          <strong>Supertipo:</strong> {{ card.supertype }}
-        </p>
-        <p>
-          <strong>Subtipos:</strong>
-          <!-- Si 'subtypes' existe, únelos con comas -->
-          {{ card.subtypes ? card.subtypes.join(', ') : 'Ninguno' }}
-        </p>
-        <p>
-          <strong>Evoluciona de:</strong>
-          {{ card.evolvesFrom || 'No aplica' }}
-        </p>
-        <p>
-          <strong>Rareza:</strong> {{ card.rarity || 'No especificada' }}
-        </p>
-        <p>
-          <strong>Regulación:</strong> {{ card.regulationMark || 'Desconocida' }}
-        </p>
-  
-        <!-- Ataques -->
-        <h4>Ataques</h4>
-        <ul class="list-group mb-3">
-          <!-- Recorremos los ataques de la carta si existen -->
-           @for (attack of card.attacks; track $index) {
-          <li class="list-group-item">
-            <strong>{{ attack.name }}:</strong>
-            {{ attack.damage }} de daño
-            <br />
-            <small>{{ attack.text }}</small>
-          </li>
-        }
-        </ul>
-  
-        <!-- Debilidades y coste de retirada -->
-        <h4>Características</h4>
-        <div >
-          <p>
-            <strong>Debilidad:</strong>
-            {{ card.weaknesses[0].type }} ({{ card.weaknesses[0].value }})
-          </p>
-        </div>
-  
-        <!-- Precios -->
-        <h4 class="mt-4">Precios</h4>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Precio Promedio:</strong>
-            ${{ card.cardmarket?.prices?.averageSellPrice }}
-          </li>
-          <li class="list-group-item">
-            <strong>Precio Mínimo:</strong>
-            ${{ card.cardmarket?.prices?.lowPrice }}
-          </li>
-          <li class="list-group-item">
-            <strong>Precio de Tendencia:</strong>
-            ${{ card.cardmarket?.prices?.trendPrice }}
-          </li>
-          <li class="list-group-item">
-            <a
-              [href]="card.cardmarket?.url"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver en CardMarket
-            </a>
-          </li>
-        </ul>
+  <div class="row">
+    <!-- Columna de la imagen de la carta -->
+    <div class="col-md-4">
+      <div class="card">
+        <img [src]="card.images?.large" class="card-img-top" [alt]="card.name" />
       </div>
     </div>
+    <div class="col-md-8">
+      <h2 class="mb-3">
+        {{ card.name }}
+      </h2>
+      <p>
+        <strong>Supertipo:</strong>{{ card.supertype }}
+      </p>
+      <p>
+        <strong>Subtipos:</strong>
+        <!-- Si 'subtypes' existe, únelos con comas -->
+        {{ card.subtypes ? card.subtypes.join(', ') : 'Ninguno' }}
+      </p>
+      <p>
+        <strong>Evoluciona de:</strong>
+        {{ card.evolvesFrom || 'No aplica' }}
+      </p>
+      <p>
+        <strong>Rareza:</strong> {{ card.rarity || 'No especificada' }}
+      </p>
+      <p>
+        <strong>Regulación:</strong> {{ card.regulationMark || 'Desconocida' }}
+      </p>
+
+      @if(card.abilities){
+        <ul class="list-group mb-3">
+        <li class="list-group-item">
+          <img style="max-width: 90px;" src="assets/extras/ability.png">
+          <br>
+          @for (ability of card.abilities; track $index) {
+          <strong>{{ ability.name }}</strong>
+          <br />
+          <small>{{ ability.text }}</small>
+        }
+        </li>
+      </ul>
+      }
+
+      <!-- Ataques -->
+      <h4>Ataques</h4>
+      <ul class="list-group mb-3">
+        <!-- Recorremos los ataques de la carta si existen -->
+        @for (attack of card.attacks; track $index) {
+        <li class="list-group-item">
+          @for (energy of attack.cost; track $index) {
+            <img style="max-width: 20px;" [src]="route + energy + '.png'">
+          }
+          <br>
+          <strong>{{ attack.name }}:</strong>
+          {{ attack.damage }} de daño
+          <br />
+          <small>{{ attack.text }}</small>
+        </li>
+        }
+      </ul>
+      <h4>Características</h4>
+      <div>
+        @if (card.weaknesses) {
+        <p>
+          <strong>Debilidad: </strong>
+          <img style="max-width: 20px;" [src]="route+card.weaknesses[0].type+'.png'" alt=""> ({{ card.weaknesses[0].value }})
+        </p>
+      }
+      @if (card.retreatCost) {
+        <p> 
+          <strong>Coste de retirada: </strong>
+          @for (retreat of card.retreatCost; track $index) {
+            <img style="max-width: 20px;" [src]="route + retreat+'.png'">
+          }
+        </p>
+      }
+      </div>
+
+      <!-- Precios -->
+      <h4 class="mt-4">Precios</h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Precio Promedio:</strong>
+          ${{ card.cardmarket?.prices?.averageSellPrice }}
+        </li>
+        <li class="list-group-item">
+          <strong>Precio Mínimo:</strong>
+          ${{ card.cardmarket?.prices?.lowPrice }}
+        </li>
+        <li class="list-group-item">
+          <strong>Precio de Tendencia:</strong>
+          ${{ card.cardmarket?.prices?.trendPrice }}
+        </li>
+        <li class="list-group-item">
+          <a [href]="card.cardmarket?.url" target="_blank" rel="noopener noreferrer">
+            Ver en CardMarket
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  
+</div>

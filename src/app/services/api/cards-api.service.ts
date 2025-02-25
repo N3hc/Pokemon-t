@@ -13,7 +13,6 @@ export class CardsApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Función para preparar la llamada a la API
   private callApi<T>(endpoint: string, params: any): Observable<T> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.apiToken}`
@@ -21,7 +20,6 @@ export class CardsApiService {
     return this.http.get<T>(`${this.apiUrl}${endpoint}`, { headers, params });
   }
 
-  // Función para manejar la respuesta y los errores
   private handleApiResponse<T>(observable: Observable<T>, operation: string, defaultResult: T): Observable<T> {
     return observable.pipe(
       catchError(error => {
@@ -41,7 +39,6 @@ export class CardsApiService {
       q: 'set.id:sv3pt5',
       orderBy: 'number'
     };
-    // Se prepara la llamada y se pasa a la función que maneja la respuesta
     return this.handleApiResponse(this.callApi<any>('/cards', params), 'getCards', []);
   }
 
@@ -49,7 +46,7 @@ export class CardsApiService {
     const params = {
       q: `name:${name}`,
       orderBy: 'number'
-    };
+    };  
     return this.handleApiResponse(this.callApi<any>('/cards', params), 'getUniquePokemon', {});
   }
 
@@ -58,6 +55,7 @@ export class CardsApiService {
       q: `set.id:${set}`,
       orderBy: 'number'
     };
+    
     return this.handleApiResponse(this.callApi<any>('/cards', params), 'getPokemonsFromSets', []);
   }
 
