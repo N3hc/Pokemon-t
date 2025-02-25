@@ -1,14 +1,8 @@
 <app-header></app-header>
 @if (!selectedProduct) {
 <app-carrousel></app-carrousel>
-<<<<<<< HEAD
 <app-products (productSelected)="onProductSelected($event)"></app-products>
 }
 @else {
     <app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
 }
-=======
-<app-products></app-products>
-<app-carrousel-highlights/>
-
->>>>>>> 0b4a3ea67bed294573afbb95990b7dc26fcf4185
