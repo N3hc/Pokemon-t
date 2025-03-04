@@ -1,9 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { CommentsComponent } from './comments/comments.component';
+
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [],
+  imports: [CommentsComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })

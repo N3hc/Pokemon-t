@@ -1,105 +1,104 @@
-<button (click)="backToProducts()">Go back</button>
-<div class="container mt-4">
+<button class="btn btn-outline-primary" (click)="backToProducts()">
+  <i class="bi bi-arrow-left"></i> Go back
+</button>
+<div class="container mt-5">
   <div class="row">
-    <!-- Columna de la imagen de la carta -->
-    <div class="col-md-4">
-      <div class="card">
-        <img [src]="card.images?.large" class="card-img-top" [alt]="card.name" />
+    <!-- Product Images -->
+    <div class="col-md-4" style="margin-right: 50px;">
+      <div class="holographic-container">
+        <div class="holographic-card">
+          <img [src]="card.images?.large" class="card-img-top" [alt]="card.name" />
+        </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <h2 class="mb-3">
-        {{ card.name }}
+
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <h2 class="mb-3"> {{ card.name }}
       </h2>
-      <p>
-        <strong>Supertipo:</strong>{{ card.supertype }}
-      </p>
-      <p>
-        <strong>Subtipos:</strong>
-        <!-- Si 'subtypes' existe, únelos con comas -->
-        {{ card.subtypes ? card.subtypes.join(', ') : 'Ninguno' }}
-      </p>
-      <p>
-        <strong>Evoluciona de:</strong>
-        {{ card.evolvesFrom || 'No aplica' }}
-      </p>
-      <p>
-        <strong>Rareza:</strong> {{ card.rarity || 'No especificada' }}
-      </p>
-      <p>
-        <strong>Regulación:</strong> {{ card.regulationMark || 'Desconocida' }}
-      </p>
-
-      @if(card.abilities){
-        <ul class="list-group mb-3">
-        <li class="list-group-item">
-          <img style="max-width: 90px;" src="assets/extras/ability.png">
-          <br>
-          @for (ability of card.abilities; track $index) {
-          <strong>{{ ability.name }}</strong>
-          <br />
-          <small>{{ ability.text }}</small>
-        }
-        </li>
-      </ul>
-      }
-
-      <!-- Ataques -->
-      <h4>Ataques</h4>
-      <ul class="list-group mb-3">
-        <!-- Recorremos los ataques de la carta si existen -->
-        @for (attack of card.attacks; track $index) {
-        <li class="list-group-item">
-          @for (energy of attack.cost; track $index) {
-            <img style="max-width: 20px;" [src]="route + energy + '.png'">
-          }
-          <br>
-          <strong>{{ attack.name }}:</strong>
-          {{ attack.damage }} de daño
-          <br />
-          <small>{{ attack.text }}</small>
-        </li>
-        }
-      </ul>
-      <h4>Características</h4>
-      <div>
-        @if (card.weaknesses) {
-        <p>
-          <strong>Debilidad: </strong>
-          <img style="max-width: 20px;" [src]="route+card.weaknesses[0].type+'.png'" alt=""> ({{ card.weaknesses[0].value }})
-        </p>
-      }
-      @if (card.retreatCost) {
-        <p> 
-          <strong>Coste de retirada: </strong>
-          @for (retreat of card.retreatCost; track $index) {
-            <img style="max-width: 20px;" [src]="route + retreat+'.png'">
-          }
-        </p>
-      }
+      <p class="text-muted mb-4">Card ID: {{card.id}}</p>
+      <div class="mb-3">
+        <span class="h4 me-2">{{ card.cardmarket?.prices?.trendPrice}} €</span>
       </div>
-
-      <!-- Precios -->
-      <h4 class="mt-4">Precios</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <strong>Precio Promedio:</strong>
-          ${{ card.cardmarket?.prices?.averageSellPrice }}
-        </li>
-        <li class="list-group-item">
-          <strong>Precio Mínimo:</strong>
-          ${{ card.cardmarket?.prices?.lowPrice }}
-        </li>
-        <li class="list-group-item">
-          <strong>Precio de Tendencia:</strong>
-          ${{ card.cardmarket?.prices?.trendPrice }}
-        </li>
-        <li class="list-group-item">
-          <a [href]="card.cardmarket?.url" target="_blank" rel="noopener noreferrer">
-            Ver en CardMarket
-          </a>
-        </li>
+      <div class="mb-3">
+        <i class="bi bi-star-fill text-warning"></i>
+        <i class="bi bi-star-fill text-warning"></i>
+        <i class="bi bi-star-fill text-warning"></i>
+        <i class="bi bi-star-fill text-warning"></i>
+        <i class="bi bi-star-half text-warning"></i>
+        <span class="ms-2">4.5 (120 reviews)</span>
+      </div>
+      <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item"><strong>Supertipo:</strong> {{ card.supertype }}</li>
+        <li class="list-group-item"><strong>Subtipos:</strong> {{ card.subtypes ? card.subtypes.join(', ') : 'Ninguno'
+          }}</li>
+        <li class="list-group-item"><strong>Evoluciona de:</strong> {{ card.evolvesFrom || 'No aplica' }}</li>
+        <li class="list-group-item"><strong>Rareza:</strong> {{ card.rarity || 'No especificada' }}</li>
+        <li class="list-group-item"><strong>Regulación:</strong> {{ card.regulationMark || 'Desconocida' }}</li>
       </ul>
+      <div class="mb-4">
+        <label for="quantity" class="form-label">Quantity:</label>
+        <input type="number" class="form-control" id="quantity" value="1" min="1" style="width: 80px;">
+      </div>
+      <button class="btn btn-primary btn-lg mb-3 me-2">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+      </button>
+      <button class="btn btn-outline-secondary btn-lg mb-3">
+        <i class="bi bi-heart"></i> Add to Wishlist
+      </button>
+    </div>
+    <div class="row">
+      <div class="mt-4">
+        @if(card.abilities){
+        <ul class="list-group mb-3">
+          <li class="list-group-item">
+            <img style="max-width: 90px;" src="assets/extras/ability.png">
+            <br>
+            @for (ability of card.abilities; track $index) {
+            <strong>{{ ability.name }}</strong>
+            <br />
+            <small>{{ ability.text }}</small>
+            }
+          </li>
+        </ul>
+        }
+
+        <!-- Ataques -->
+        <h4>Ataques</h4>
+        <ul class="list-group mb-3">
+          @for (attack of card.attacks; track $index) {
+          <li class="list-group-item">
+            @for (energy of attack.cost; track $index) {
+            <img style="max-width: 20px;" [src]="route + energy + '.png'">
+            }
+            <br>
+            <strong>{{ attack.name }}:</strong>
+            {{ attack.damage }} de daño
+            <br />
+            <small>{{ attack.text }}</small>
+          </li>
+          }
+        </ul>
+        <h4>Características</h4>
+        <div>
+          @if (card.weaknesses) {
+          <p>
+            <strong>Debilidad: </strong>
+            <img style="max-width: 20px;" [src]="route+card.weaknesses[0].type+'.png'" alt=""> ({{
+            card.weaknesses[0].value }})
+          </p>
+          }
+          @if (card.retreatCost) {
+          <p>
+            <strong>Coste de retirada: </strong>
+            @for (retreat of card.retreatCost; track $index) {
+            <img style="max-width: 20px;" [src]="route + retreat+'.png'">
+            }
+          </p>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<app-comments></app-comments>
