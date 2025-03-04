@@ -1,0 +1,14 @@
+<html>
+
+@for (Card of Cards; track $index){
+  <div class="card" style="width: 18rem;">
+    <img src="{{Card.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{Card.name}}</h5>
+      <p class="card-text">{{Card.id}}</p>
+    </div>
+  </div>
+}
+
+
+</html>
