@@ -1,0 +1,34 @@
+<div class="container mt-1 mt-md-5">
+  <div class="d-flex flex-wrap justify-content-center align-items-center position-relative">
+    <button class="btn btn-primary position-absolute start-0" (click)="anteriorProducto()">Anterior</button>
+    <div class="card p-3 bg-white m-2 card-anterior">
+      <i class="fa fa-apple"></i>
+      <div class="about-product text-center mt-2">
+        <img [src]="Cards[anterior].image">
+        <div>
+          <h4>{{Cards[anterior].name}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="card p-3 bg-white m-2 card-actual">
+      <i class="fa fa-apple"></i>
+      <div class="about-product text-center mt-2">
+        <img [src]="Cards[actual].image">
+        <div>
+          <h4>{{Cards[actual].name}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="card p-3 bg-white m-2 card-siguiente">
+      <i class="fa fa-apple"></i>
+      <div class="about-product text-center mt-2">
+        <img [src]="Cards[siguiente].image">
+        <div>
+          <h4>{{Cards[siguiente].name}}</h4>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary position-absolute end-0" (click)="siguienteProducto()">Siguiente</button>
+  </div>
+</div>
+  

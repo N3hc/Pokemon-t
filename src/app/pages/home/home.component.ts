@@ -5,11 +5,12 @@ import { CarrouselComponent } from '../../components/carrousel/carrousel.compone
 import { ResultsComponent } from '../items/results/results.component';
 import { DetailComponent } from '../items/detail/detail.component';
 import { CarrouselHighlightsComponent } from "../../components/carrousel-highlights/carrousel-highlights.component";
+import { ProductCarrouselComponent } from '../../components/product-carrousel/product-carrousel.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, ProductsComponent, CarrouselComponent, ResultsComponent, CarrouselHighlightsComponent, DetailComponent],
+  imports: [HeaderComponent, ProductsComponent, CarrouselComponent, ResultsComponent, CarrouselHighlightsComponent, DetailComponent, ProductCarrouselComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
