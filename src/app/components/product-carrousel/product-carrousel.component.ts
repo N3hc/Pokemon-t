@@ -13,6 +13,8 @@ export class ProductCarrouselComponent {
   actual: number = 1;
   siguiente: number = 2;
 
+  
+
   Cards: Card[] = [
     {
       id: 'dp5-98',
