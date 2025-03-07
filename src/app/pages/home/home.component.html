@@ -6,12 +6,13 @@
 
 
 <!--@if (!selectedProduct) {
-<app-products></app-products>
-<app-product-carrousel/>
-<app-carrousel-highlights/>
+<app-carrousel></app-carrousel>
+<app-product-carrousel />
+<app-products (productSelected)="onProductSelected($event)"></app-products>
+<app-carrousel-highlights />
 }
 @else {
-    <app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
+<app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
 }-->
 
 <!--<app-detail [card]="CardTest" (goBack)="goBack()"></app-detail>-->

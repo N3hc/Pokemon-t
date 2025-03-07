@@ -16,8 +16,9 @@
           </tr>
           @for (set of sets; track $index) {
             @if (serie == set.series) {
-              <tr class="hover:bg-blue-200 transition">
-                <td class="px-4 py-2">{{ set.name }}</td>
+              <tr class="hover:bg-blue-200 transition text-black">
+                <td class="px-4 py-2 inline-flex items-baseline ">{{ set.name }} 
+                  <img src= {{set.images.symbol}} class="w-[20px] h-[20px] ml-3" alt=""></td>
                 <td class="px-4 py-2">{{ set.releaseDate }}</td>
                 <td class="px-4 py-2">{{ set.total }}</td>
                 <td class="px-4 py-2">{{ set.legalities.unlimited }}</td>

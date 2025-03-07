@@ -14,7 +14,7 @@
             <div class="content cursor-pointer flex flex-col items-center justify-center space-y-3"
                 (click)="selectCategory(sets[i].id)">
                 <img [src]="sets[i].images.logo" [alt]="sets[i].name"
-                    class="w-[200px] h-[100px] object-contain rounded-lg mb-2 bg-gray-50 p-2 border border-gray-100">
+                    class="w-[200px] h-[100px] object-contain rounded-lg mb-2 p-2">
                 <p class="font-semibold text-gray-700 text-lg text-center">{{ sets[i].name }}</p>
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 hover:opacity-100 transition-opacity rounded-xl">

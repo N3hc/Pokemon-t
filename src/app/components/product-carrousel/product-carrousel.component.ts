@@ -45,12 +45,6 @@ export class ProductCarrouselComponent {
       name: 'Venusaur & Snivy-GX',
       image: 'https://images.pokemontcg.io/sm12/249.png',
       setName: 'Cosmic Eclipse'
-    },
-    {
-      id: 'sm6-146',
-      name: 'Unit Energy FightingDarknessFairy',
-      image: 'https://images.pokemontcg.io/sm6/146.png',
-      setName: 'Forbidden Light'
     }
   ];
 
