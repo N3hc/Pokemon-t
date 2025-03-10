@@ -45,10 +45,70 @@ export class ProductCarrouselComponent {
       setName: 'Cosmic Eclipse'
     },
     {
-      id: 'sm6-146',
-      name: 'Unit Energy FightingDarknessFairy',
-      image: 'https://images.pokemontcg.io/sm6/146.png',
-      setName: 'Forbidden Light'
+      id:'swsh10tg-TG23',
+      name:'Garchomp V',
+      image:'https://images.pokemontcg.io/swsh10tg/TG23.png',
+      setName:'Astral Radiance'
+    },
+    {
+      id:'sv7-173',
+      name:'Terapagos Ex',
+      image:'https://images.pokemontcg.io/sv7/170.png',
+      setName:'Stellar  Crown'
+    },
+    {
+      id:'xy4-65a',
+      name:'Aegislash Ex',
+      image:'https://images.pokemontcg.io/xy4/65a.png',
+      setName:'Phantom Forces'
+    },
+    {
+      id:'neo4-10',
+      name:'Dark Typhlosion',
+      image:'https://images.pokemontcg.io/neo4/10.png',
+      setName:'Neo Destiny'
+    },
+    {
+      id:'pl4-SH11',
+      name:'Rapidash',
+      image:'https://images.pokemontcg.io/pl4/SH11.png',
+      setName:'Arceus'
+    },
+    {
+      id:'sm11-71',
+      name:'Mewtwo & Mew GX',
+      image:'https://images.pokemontcg.io/sm11/71.png',
+      setName:'Unified Minds'
+    },
+    {
+      id:'col1-33',
+      name:'Snorlax',
+      image:'https://images.pokemontcg.io/col1/33.png',
+      setName:'Call of Legends'
+    },
+    {
+      id:'sv4-248',
+      name:'Iron Hands Ex',
+      image:'https://images.pokemontcg.io/sv4/248.png',
+      setName:'Parados Rift'
+    },
+    {
+      id:'swsh7-14',
+      name:'Trevenant VMAX',
+      image:'https://images.pokemontcg.io/swsh7/14.png',
+      setName:'Evolving Skies'
+    },
+    {
+      id:'neo1-14',
+      name:'Slowking',
+      image:'https://images.pokemontcg.io/neo1/14.png',
+      setName:'Unseen Forces'
+    },
+    {
+      id:'bw4-72',
+      name:'Shiftry',
+      image:'https://images.pokemontcg.io/bw4/72.png',
+      setName:'Next Destinies'
     }
   ];
 
