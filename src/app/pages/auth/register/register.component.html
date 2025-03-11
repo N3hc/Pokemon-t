@@ -1,1 +1,65 @@
-<p>register works!</p>
+<section class="flex justify-center min-h-screen bg-gray-50 py-12">
+    <div class="mx-auto w-full max-w-2xl px-4 lg:px-8">
+        <img src="assets/logos/logo.png" alt="logo" class="mx-auto mb-10 h-16 w-auto lg:mb-12">
+        
+        <div class="rounded-2xl bg-white shadow-xl">
+            <form class="p-8 lg:p-12">
+                <h1 class="mb-12 text-center font-manrope text-3xl font-bold text-gray-900">
+                    Create Account
+                </h1>
+
+                <div class="space-y-6 mb-8">
+                    <input type="text"
+                        class="w-full rounded-full border-2 border-gray-200 h-14 px-6 text-lg 
+                               placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 
+                               focus:ring-indigo-200 transition-all duration-300"
+                        placeholder="Username">
+
+                    <input type="email"
+                        class="w-full rounded-full border-2 border-gray-200 h-14 px-6 text-lg 
+                               placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 
+                               focus:ring-indigo-200 transition-all duration-300"
+                        placeholder="Email Address">
+
+                    <input type="password"
+                        class="w-full rounded-full border-2 border-gray-200 h-14 px-6 text-lg 
+                               placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 
+                               focus:ring-indigo-200 transition-all duration-300"
+                        placeholder="Password">
+
+                    <input type="password"
+                        class="w-full rounded-full border-2 border-gray-200 h-14 px-6 text-lg 
+                               placeholder:text-gray-400 focus:border-indigo-500 focus:ring-2 
+                               focus:ring-indigo-200 transition-all duration-300"
+                        placeholder="Confirm Password">
+                </div>
+
+                <!-- Checkbox para Vendor -->
+                <div class="mb-8 flex items-center space-x-3">
+                    <input type="checkbox" id="vendorCheckbox" class="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 cursor-pointer">
+                    <label for="vendorCheckbox" class="text-lg font-medium text-gray-700 cursor-pointer hover:text-gray-900 transition-colors duration-300">
+                        I am a vendor
+                    </label>
+                </div>
+
+                <!-- Botón de Registro -->
+                <button class="w-full h-14 rounded-full bg-indigo-600 text-white font-semibold text-lg 
+                            hover:bg-indigo-700 transition-all duration-300 mb-6 shadow-md">
+                    Create Account
+                </button>
+
+                
+
+                <!-- Enlaces inferiores -->
+                <div class="text-center">
+                    <p class="text-gray-600">
+                        Already registered? 
+                        <a href="#" class="text-indigo-600 font-semibold hover:text-indigo-800 ml-1.5">
+                            Sign In
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
