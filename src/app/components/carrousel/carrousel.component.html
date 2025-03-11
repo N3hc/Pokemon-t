@@ -1,17 +1,35 @@
-<div class="container">
-    <button class="btn left" (click)="move(-1)">&lt;</button>
-    @if (sets.length > 0){
-    @for (i of getVisibleIndices(); track i) {
-    <div class="item">
-        <div class="content" (click)="selectCategory(sets[i].id)">
-            <img [src]="sets[i].images.logo" [alt]="sets[i].name">
-            <p>{{ sets[i].name }}</p>
+<div class="relative flex items-center justify-center">
+    <!-- Carrusel -->
+    <div class="flex gap-6 scroll-smooth p-4 m-2 bg-indigo-50 shadow-inner rounded-2xl relative w-auto">
+        <!-- Botón Izquierdo -->
+        <button
+            class="absolute left-20 top-1/2 -translate-y-1/2 z-10 bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 -translate-x-1/2 ml-4"
+            (click)="move(-1)">
+            &lt;
+        </button>
+        @if (sets.length > 0){
+        @for (i of getVisibleIndices(); track i) {
+        <div
+            class="item bg-white rounded-xl shadow-md hover:shadow-xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 min-w-[250px] relative">
+            <div class="content cursor-pointer flex flex-col items-center justify-center space-y-3"
+                (click)="selectCategory(sets[i].id)">
+                <img [src]="sets[i].images.logo" [alt]="sets[i].name"
+                    class="w-[200px] h-[100px] object-contain rounded-lg mb-2 p-2">
+                <p class="font-semibold text-gray-700 text-lg text-center">{{ sets[i].name }}</p>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 hover:opacity-100 transition-opacity rounded-xl">
+                </div>
+            </div>
         </div>
+        }
+        } @else {
+        <div class="text-gray-500 italic p-4">No hay categorías disponibles</div>
+        }
+        <!-- Botón Derecho -->
+        <button
+            class="absolute right-20 top-1/2 -translate-y-1/2 z-10 bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 translate-x-1/2 mr-4"
+            (click)="move(1)">
+            &gt;
+        </button>
     </div>
-    }
-    }
-    @else{
-    <p>Cargando sets...</p>
-    }
-    <button class="btn right" (click)="move(1)">&gt;</button>
 </div>

@@ -1,24 +1,27 @@
-<div class="container mt-4">
+<div class="container mx-auto mt-4 p-4 bg-[#EDF1FF] rounded-lg shadow-md">
   @if (sets.length > 0) {
-    <table class="table table-striped table-hover">
-      <thead class="thead-dark">
+    <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
+      <thead class="bg-[#3D81B6] text-white">
         <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Fecha de Salida</th>
-          <th scope="col">Total de Cartas</th>
+          <th class="px-4 py-2 text-left">Nombre</th>
+          <th class="px-4 py-2 text-left">Fecha de Salida</th>
+          <th class="px-4 py-2 text-left">Total de Cartas</th>
+          <th class="px-4 py-2 text-left">Legalities</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="divide-y divide-gray-300">
         @for (serie of series; track $index) {
-          <tr class="table-primary">
-            <td colspan="3">{{ serie }}</td>
+          <tr class="bg-blue-100">
+            <td colspan="4" class="px-4 py-2 font-semibold text-[#3D81B6]">{{ serie }}</td>
           </tr>
           @for (set of sets; track $index) {
             @if (serie == set.series) {
-              <tr>
-                <td>{{ set.name }}</td>
-                <td>{{ set.releaseDate }}</td>
-                <td>{{ set.total }}</td>
+              <tr class="hover:bg-blue-200 transition text-black">
+                <td class="px-4 py-2 inline-flex items-baseline ">{{ set.name }} 
+                  <img src= {{set.images.symbol}} class="w-[20px] h-[20px] ml-3" alt=""></td>
+                <td class="px-4 py-2">{{ set.releaseDate }}</td>
+                <td class="px-4 py-2">{{ set.total }}</td>
+                <td class="px-4 py-2">{{ set.legalities.unlimited }}</td>
               </tr>
             }
           }
@@ -26,6 +29,6 @@
       </tbody>
     </table>
   }@else{
-    <h1> Cargando</h1>
+    <h1 class="text-[#3D81B6] text-2xl font-bold text-center">Cargando...</h1>
   }
 </div>

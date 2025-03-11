@@ -48,7 +48,7 @@ export class CarrouselComponent implements OnInit {
   getVisibleIndices(): number[] {
     const totalItems = this.sets.length;
     const visibleIndices = [];
-    for (let i = -3; i <= 3; i++) {
+    for (let i = -2; i <= 3; i++) {
       const index = (this.currentIndex + i + totalItems) % totalItems;
       visibleIndices.push(index);
     }
