@@ -13,6 +13,7 @@ export class CarrouselHighlightsComponent {
 
   sets:any [] = [];
   series: string[] = [];
+  ids: string[] = [];
 
     constructor(private cardsApiService: CardsApiService
     ) {}
@@ -27,13 +28,17 @@ export class CarrouselHighlightsComponent {
 
           // Usar un Set para obtener valores únicos
           const seriesSet = new Set<string>();
+          const seriesSet2 = new Set<string>();
           this.sets.forEach((set) => seriesSet.add(set.series));
+          this.sets.forEach((set) => seriesSet2.add(set.id));
 
           // Convertir el Set de nuevo a un array
           this.series = Array.from(seriesSet);
+          this.ids = Array.from(seriesSet2);
 
           console.log(sets);
           console.log(this.series);
+          console.log(this.ids);
         },
         error: (error) => {
           console.error('Error al cargar los sets:', error);
