@@ -10,8 +10,9 @@ import { SearchService } from '../../services/search/search.service';
   styleUrl: './carrousel-highlights.component.css'
 })
 export class CarrouselHighlightsComponent {
-
+  setOri: any[] = [];
   sets:any [] = [];
+  any = 0;
   series: string[] = [];
   ids: string[] = [];
 
@@ -25,6 +26,7 @@ export class CarrouselHighlightsComponent {
           const set = sets.data;
 
           this.sets = set;
+          this.setOri = set;
 
           // Usar un Set para obtener valores únicos
           const seriesSet = new Set<string>();
@@ -35,6 +37,7 @@ export class CarrouselHighlightsComponent {
           // Convertir el Set de nuevo a un array
           this.series = Array.from(seriesSet);
           this.ids = Array.from(seriesSet2);
+          this.ids.sort;
 
           console.log(sets);
           console.log(this.series);
@@ -48,6 +51,21 @@ export class CarrouselHighlightsComponent {
 
     ngOnInit(): void {
       this.loadSets();
+    }
+
+    SearchTime(): void {
+      this.sets = this.sets.sort((a: any, b: any) => a.releaseDate.localeCompare(b.releaseDate));
+      this.any = 1;
+    }
+
+    totalSearchSets(): void {
+      this.sets = this.sets.sort((a: any, b: any) => a.total - b.total);
+      this.any = 1;
+    }
+
+    originalPos(): void {
+      this.sets = this.setOri;
+      this.any = 0;
     }
 
 }
