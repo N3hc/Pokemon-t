@@ -4,20 +4,19 @@
       <thead class="bg-[#3D81B6] text-white">
         <tr>
           <th class="px-4 py-2 text-left">
-            <button (click)="originalPos()">Nombre</button>
+            <button class="filter-button" (click)="originalPos()">Nombre</button>
           </th>
           <th class="px-4 py-2 text-left">
-            <button (click)="SearchTime()">Fecha de Salida</button>
+            <button class="filter-button" (click)="SearchTime()">Fecha de Salida</button>
           </th>
           <th class="px-4 py-2 text-left">
-            <button (click)="totalSearchSets()">Total de Cartas</button>
+            <button class="filter-button" (click)="totalSearchSets()">Total de Cartas</button>
           </th>
           <th class="px-4 py-2 text-left">Legalities</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-300">
         @for (serie of series; track $index) {
-
             @if (any == 0){
               <tr class="bg-blue-100">
               <td colspan="4" class="px-4 py-2 font-semibold text-[#3D81B6]">{{ serie }}</td>
