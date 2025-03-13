@@ -3,7 +3,7 @@
     <div class="flex gap-6 scroll-smooth p-4 m-2 bg-indigo-50 shadow-inner rounded-2xl relative w-auto">
         <!-- Botón Izquierdo -->
         <button
-            class="absolute left-20 top-1/2 -translate-y-1/2 z-10 bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 -translate-x-1/2 ml-4"
+            class="absolute left-4 md:left-20 top-1/2 -translate-y-1/2 z-20 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 md:px-4 md:py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 md:-translate-x-1/2"
             (click)="move(-1)">
             &lt;
         </button>
@@ -27,7 +27,7 @@
         }
         <!-- Botón Derecho -->
         <button
-            class="absolute right-20 top-1/2 -translate-y-1/2 z-10 bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 translate-x-1/2 mr-4"
+            class="absolute right-4 md:right-20 top-1/2 -translate-y-1/2 z-20 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 md:px-4 md:py-3 rounded shadow-lg transition-all opacity-75 hover:opacity-100 hover:scale-110 md:translate-x-1/2"
             (click)="move(1)">
             &gt;
         </button>

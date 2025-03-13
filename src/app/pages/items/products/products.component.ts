@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit  {
 
   selectProduct(product: any) {
     this.productSelected.emit(product);
+    console.log(product)
   }
 
   cards: any[] = [];
