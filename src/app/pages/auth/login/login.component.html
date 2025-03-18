@@ -1,28 +1,47 @@
-<section class="flex justify-center relative">
-    <div class="mx-auto max-w-lg px-6 lg:px-8 absolute py-20">
-        <img src="assets/logos/logo.png" alt="logo"
-            class="mx-auto lg:mb-11 mb-8 object-cover">
-        <div class="rounded-2xl bg-white shadow-xl">
-            <form action="" class="lg:p-11 p-7 mx-auto">
-                <div class="mb-11">
-                    <h1 class="text-gray-900 text-center font-manrope text-3xl font-bold leading-10 mb-2">Welcome
-                    </h1>
-                </div>
-                <input type="text"
-                    class="w-full h-12 mb-3 text-gray-900 placeholder:text-gray-400 text-lg font-normal leading-7 rounded-full border-gray-300 border shadow-sm focus:outline-none px-4 mb-6"
-                    placeholder="Username">
-                <input type="text"
-                    class="w-full h-12 mt-3 text-gray-900 placeholder:text-gray-400 text-lg font-normal leading-7 rounded-full border-gray-300 border shadow-sm focus:outline-none px-4 mb-1"
-                    placeholder="Password">
-                <a href="javascript:;" class="flex justify-end mb-6">
-                    <span class="text-indigo-600 text-right text-base font-normal leading-6">Forgot Password?</span>
-                </a>
-                <button
-                    class="w-full h-12 text-white text-center text-base font-semibold leading-6 rounded-full hover:bg-indigo-800 transition-all duration-700 bg-indigo-600 shadow-sm mb-11">Login</button>
-                <a href="javascript:;" class="flex justify-center text-gray-900 text-base font-medium leading-6"> Don’t
-                    have an account? <span class="text-indigo-600 font-semibold pl-3"> Sign Up</span>
-                </a>
-            </form>
+<div class="relative flex min-h-screen items-center justify-center bg-gray-800 p-6 overflow-hidden"
+    style="background: url('assets/backgrounds/pokemon-pixel-art-wallpaper-preview.jpg') center/cover no-repeat;">
+
+    <!-- Charizard GIF (arriba) -->
+    <img src="assets/backgrounds/charizard.gif" alt="Flying Charizard"
+        class="absolute top-0 left-0 w-70 animate-marquee-1" />
+
+    <form id="loginForm"
+        class="w-full max-w-sm bg-black/20 p-6 rounded-lg shadow-md transition duration-300 hover:bg-black/70">
+        <div class="relative mb-4 flex flex-col">
+            <label for="email" class="text-white mb-1">Correo Electrónico</label>
+            <input type="email" id="email" placeholder="ejemplo@email.com"
+                class="w-full bg-transparent p-2 text-white border border-gray-400 rounded focus:outline-none"
+                required />
         </div>
-    </div>
-</section>
+
+        <div class="relative mb-4 flex items-center border-b border-gray-400 py-2">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Password"
+                class="w-full bg-transparent p-2 text-white focus:outline-none" />
+            <button type="button" (click)="togglePassword()" class="absolute right-2 text-gray-400">
+                @if (!showPassword) {
+                <img src="assets/icons/eye.png" alt="Show Password" width="20" height="20" />
+                }@else{
+                <img src="assets/icons/hidden.png" alt="Hide Password" width="20" height="20" />
+                }
+            </button>
+        </div>
+        <button type="submit"
+            class="w-full bg-gradient-to-r from-teal-500 to-teal-400 py-2 text-white font-semibold rounded-lg hover:scale-105 transition-transform">
+            Iniciar Sesión
+        </button>
+
+        <div class="mt-4 text-center">
+            <a href="#" class="text-teal-300 text-sm hover:underline">¿Olvidaste tu contraseña?</a>
+            <p class="text-gray-400 text-sm">¿No tienes cuenta? 
+                <a routerLink="/register" class="text-teal-300 hover:underline">Regístrate aquí</a>
+            </p>
+        </div>
+    </form>
+
+    <!-- Pikachu GIF (abajo) -->
+    <img src="assets/backgrounds/pikachu.gif" alt="Running Pikachu"
+        class="absolute bottom-10 left-0 w-24 animate-marquee-2" />
+    <img src="assets/backgrounds/emeraldHero.gif" alt="Running Hero"
+        class="absolute bottom-5 left-0 w-30 animate-marquee-3" />
+
+</div>
