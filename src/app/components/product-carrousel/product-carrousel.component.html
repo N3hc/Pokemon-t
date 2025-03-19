@@ -1,34 +1,107 @@
-<div class="container mt-1 mt-md-5">
-  <div class="d-flex flex-wrap justify-content-center align-items-center position-relative">
-    <button class="btn btn-primary position-absolute start-0" (click)="anteriorProducto()">Anterior</button>
-    <div class="card p-3 bg-white m-2 card-anterior">
-      <i class="fa fa-apple"></i>
-      <div class="about-product text-center mt-2">
-        <img [src]="Cards[anterior].image">
-        <div>
-          <h4>{{Cards[anterior].name}}</h4>
+<div class="flex items-center justify-center min-h-[600px] py-12 relative">
+  <div class="flex gap-8 p-6 w-full max-w-7xl relative bg-indigo-50 rounded-2xl shadow-inner scroll-smooth mx-4">
+    <!-- Botón Anterior -->
+    <button class="absolute left-4 md:left-8 top-1/2 px-4 py-3 z-20 -translate-y-1/2 
+             bg-blue-500 text-white 
+             rounded shadow-lg 
+             transition-all opacity-75 hover:opacity-100 hover:scale-110 hover:bg-blue-700 focus:outline-none"
+      (click)="anteriorProducto()" aria-label="Producto anterior">
+      &lt;
+    </button>
+
+    <!-- Contenedor de tarjetas -->
+    <div class="flex flex-1 items-center justify-center gap-4 p-4 overflow-hidden">
+      <!-- Tarjeta 1 -->
+      <div class="flex flex-col items-center justify-center p-4 min-w-[200px] md:min-w-[240px] relative 
+                  bg-white rounded-xl shadow-md 
+                  transition-all duration-300 opacity-30 scale-80 hover:shadow-xl hover:-translate-y-2 mx-1">
+        <div class="flex flex-col items-center justify-center space-y-3 cursor-pointer relative">
+          <img [src]="Cards[(actual - 2 + Cards.length) % Cards.length].image"
+            class="max-w-full h-auto w-[360px] h-[200px] p-2 mb-2 object-contain rounded-lg">
+          <p class="text-base font-medium text-center text-gray-600 max-w-[220px]">
+            {{Cards[(actual - 2 + Cards.length) % Cards.length].name}}
+          </p>
+          <div class="absolute inset-0 rounded-xl opacity-0 
+                      bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                      transition-opacity hover:opacity-100"></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="flex flex-col items-center justify-center p-4 min-w-[220px] md:min-w-[260px] relative 
+                  bg-white rounded-xl shadow-md 
+                  transition-all duration-300 opacity-50 scale-90 hover:shadow-xl hover:-translate-y-2 mx-1">
+        <div class="flex flex-col items-center justify-center space-y-3 cursor-pointer relative">
+          <img [src]="Cards[(actual - 1 + Cards.length) % Cards.length].image"
+            class="max-w-full h-auto w-[480px] h-[260px] p-2 mb-2 object-contain rounded-lg">
+          <p class="text-lg font-semibold text-center text-gray-700 max-w-[240px]">
+            {{Cards[(actual - 1 + Cards.length) % Cards.length].name}}
+          </p>
+          <div class="absolute inset-0 rounded-xl opacity-0 
+                      bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                      transition-opacity hover:opacity-100"></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Actual -->
+      <div class="flex flex-col items-center justify-center p-6 min-w-[320px] md:min-w-[380px] relative z-10 
+      bg-white rounded-xl shadow-2xl overflow-hidden 
+      transition-all duration-300 scale-110 hover:shadow-2xl hover:-translate-y-2 mx-2">
+        <div class="flex flex-col items-center justify-center w-full space-y-3 cursor-pointer relative">
+          <img [src]="Cards[actual].image" 
+               class="max-w-full h-auto max-w-[520px] max-h-[300px] mb-2 object-contain">
+          <div class="w-full px-3 space-y-2">
+            <p class="text-2xl font-bold text-center text-gray-900 break-words leading-tight">
+              {{Cards[actual].name}}
+            </p>
+            <p class="text-sm text-gray-600 text-center">{{Cards[actual].setName}}</p>
+          </div>
+          <div class="absolute inset-0 rounded-xl opacity-0 
+          bg-gradient-to-r from-transparent via-white/30 to-transparent 
+          transition-opacity hover:opacity-100"></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="flex flex-col items-center justify-center p-4 min-w-[220px] md:min-w-[260px] relative 
+                  bg-white rounded-xl shadow-md 
+                  transition-all duration-300 opacity-50 scale-90 hover:shadow-xl hover:-translate-y-2 mx-1">
+        <div class="flex flex-col items-center justify-center space-y-3 cursor-pointer relative">
+          <img [src]="Cards[(actual + 1) % Cards.length].image"
+            class="max-w-full h-auto w-[480px] h-[260px] p-2 mb-2 object-contain rounded-lg">
+          <p class="text-lg font-semibold text-center text-gray-700 max-w-[240px]">
+            {{Cards[(actual + 1) % Cards.length].name}}
+          </p>
+          <div class="absolute inset-0 rounded-xl opacity-0 
+                      bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                      transition-opacity hover:opacity-100"></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="flex flex-col items-center justify-center p-4 min-w-[200px] md:min-w-[240px] relative 
+                  bg-white rounded-xl shadow-md 
+                  transition-all duration-300 opacity-30 scale-80 hover:shadow-xl hover:-translate-y-2 mx-1">
+        <div class="flex flex-col items-center justify-center space-y-3 cursor-pointer relative">
+          <img [src]="Cards[(actual + 2) % Cards.length].image"
+            class="max-w-full h-auto w-[360px] h-[200px] p-2 mb-2 object-contain rounded-lg">
+          <p class="text-base font-medium text-center text-gray-600 max-w-[220px]">
+            {{Cards[(actual + 2) % Cards.length].name}}
+          </p>
+          <div class="absolute inset-0 rounded-xl opacity-0 
+                      bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                      transition-opacity hover:opacity-100"></div>
         </div>
       </div>
     </div>
-    <div class="card p-3 bg-white m-2 card-actual">
-      <i class="fa fa-apple"></i>
-      <div class="about-product text-center mt-2">
-        <img [src]="Cards[actual].image">
-        <div>
-          <h4>{{Cards[actual].name}}</h4>
-        </div>
-      </div>
-    </div>
-    <div class="card p-3 bg-white m-2 card-siguiente">
-      <i class="fa fa-apple"></i>
-      <div class="about-product text-center mt-2">
-        <img [src]="Cards[siguiente].image">
-        <div>
-          <h4>{{Cards[siguiente].name}}</h4>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary position-absolute end-0" (click)="siguienteProducto()">Siguiente</button>
+
+    <!-- Botón Siguiente -->
+    <button class="absolute right-4 md:right-8 top-1/2 px-4 py-3 z-20 -translate-y-1/2 
+             bg-blue-500 text-white 
+             rounded shadow-lg 
+             transition-all opacity-75 hover:opacity-100 hover:scale-110 hover:bg-blue-700 focus:outline-none"
+      (click)="siguienteProducto()" aria-label="Producto siguiente">
+      &gt;
+    </button>
   </div>
 </div>
-  

@@ -1,21 +1,16 @@
 <app-header></app-header>
 
-<app-carrousel></app-carrousel>
-<app-product-carrousel></app-product-carrousel>
-<app-carrousel-highlights/>
-
-
-<!--@if (!selectedProduct) {
+<!--@if (!selectedProduct && !selectedCategory) {
 <app-carrousel></app-carrousel>
 <app-product-carrousel />
-<app-products (productSelected)="onProductSelected($event)"></app-products>
 <app-carrousel-highlights />
 }
-@else {
+@else if(!selectedProduct){
+<app-carrousel></app-carrousel>
+<app-products (productSelected)="onProductSelected($event)"></app-products>
+}
+@else{
 <app-detail [card]="selectedProduct" (goBack)="goBack()"></app-detail>
-}-->
+}
 
-<!--<app-detail [card]="CardTest" (goBack)="goBack()"></app-detail>-->
-
-
-<!--eval "$(ssh-agent -s)"-->
+<app-detail [card]="CardTest" (goBack)="goBack()"></app-detail>-->

@@ -37,7 +37,6 @@ export class CarrouselHighlightsComponent {
           // Convertir el Set de nuevo a un array
           this.series = Array.from(seriesSet);
           this.ids = Array.from(seriesSet2);
-          this.ids.sort;
 
           console.log(sets);
           console.log(this.series);
