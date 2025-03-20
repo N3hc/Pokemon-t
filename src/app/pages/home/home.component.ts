@@ -13,7 +13,7 @@ import { ProductCarrouselComponent } from '../../components/product-carrousel/pr
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent,ProductsComponent,CarrouselComponent,ResultsComponent,DetailComponent,CarrouselHighlightsComponent,ProductCarrouselComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
