@@ -9,6 +9,7 @@ import { DetailComponent } from '../items/detail/detail.component';
 import { SearchService } from '../../services/search/search.service';
 import { CarrouselHighlightsComponent } from "../../components/carrousel-highlights/carrousel-highlights.component";
 import { ProductCarrouselComponent } from '../../components/product-carrousel/product-carrousel.component';
+import { ProductoService } from '../../services/product/producto.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,8 @@ import { ProductCarrouselComponent } from '../../components/product-carrousel/pr
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private searchService: SearchService) {}
+  products: any = [];
+  constructor(private searchService: SearchService, private productoService: ProductoService) {}
 
   selectedProduct: any = null;
   selectedCategory: any = null;
@@ -31,6 +32,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.searchService.selectedCategory$.subscribe(category => {
       this.selectedCategory = category;
+    });
+    this.productoService.obtenerProductos().subscribe((data) => {
+      this.products = data;
+      console.log(this.products);
     });
   }
 
