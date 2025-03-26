@@ -10,7 +10,20 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerProductos(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/index/user`);
+  listarusers(): Observable<any> {
+    const ext = this.http.get(`${this.apiUrl}/index/user`);
+    const message = "No se pudo obtener la lista de usuarios";
+
+    if(ext){
+      return ext;
+    }else{
+      return message;
+
+
+  }
+}
+
+  obtenerProductos(json:any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/index/user`, json);
   }
 }

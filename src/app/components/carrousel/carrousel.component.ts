@@ -30,7 +30,7 @@ export class CarrouselComponent implements OnInit {
   loadSets(): void {
     this.cardsApiService.getPokemonAllSets().subscribe({
       next: (sets) => {
-        this.sets = this.shuffleArray(sets.data);
+        this.sets = sets.data;
         console.log(sets)
       },
       error: (error) => {

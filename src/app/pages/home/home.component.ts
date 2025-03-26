@@ -33,7 +33,10 @@ export class HomeComponent implements OnInit {
     this.searchService.selectedCategory$.subscribe(category => {
       this.selectedCategory = category;
     });
-    this.productoService.obtenerProductos().subscribe((data) => {
+    const filtros = {
+      id: 4,
+    };
+    this.productoService.listarusers().subscribe((data) => {
       this.products = data;
       console.log(this.products);
     });
