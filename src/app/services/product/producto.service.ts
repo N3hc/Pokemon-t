@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ProductoService {
     if(ext){
       return ext;
     }else{
-      return message;
+      return of(message);
 
 
   }
